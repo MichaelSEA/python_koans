@@ -16,7 +16,19 @@
 # and
 #   about_triangle_project_2.py
 #
+
+
 def triangle(a, b, c):
+    if a <=0 or b <= 0 or c <= 0:
+        raise TriangleError(f"Non-positive value passed for sides:{a},{b},{c}")
+
+    sum1 = a + b
+    sum2 = a + c
+    sum3 = b + c
+
+    if sum1 <= c or sum2 <= b or sum3 <= a:
+        raise TriangleError("Sum of any two sides must be greater than third one.")
+
     if a == b == c:
         return 'equilateral'
 
@@ -28,4 +40,4 @@ def triangle(a, b, c):
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
-    pass
+   pass 
